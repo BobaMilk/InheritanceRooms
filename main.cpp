@@ -18,41 +18,47 @@ using namespace std;
 class Shape {
 public:
 	virtual double area() { //returns the area
-		return 0;
+		return base * height;
+	}
+	double getBase() {
+		return base;
+	}
+	double getHeight() {
+		return height;
+	}
+	void setBase(double b) {
+		base = b;
+	}
+	void setHeight(double h) {
+		height = h;
 	}
 private:
+	double base;
+	double height;
 };
 
 class Triangle : public Shape {
 public:
 	Triangle(double b, double h) {
-		this->base = b;
-		this->height = h;
-		this->area1 = (0.5) * base * height;
+		setBase(b);
+		setHeight(h);
 	}
 	double area() {
-		return area1;
+		return (0.5) * getBase() * getHeight();
 	}
 private:
-	double base;
-	double height;
-	double area1;
 };
 
 class Rectangle : public Shape {
 public:
 	Rectangle(double b, double h) {
-		this->base = b;
-		this->height = h;
-		this->area1 = base * height;
+		setBase(b);
+		setHeight(h);
 	}
 	double area() {
-		return area1;
+		return getBase() * getHeight();
 	}
 private:
-	double base;
-	double height;
-	double area1;
 };
 
 
